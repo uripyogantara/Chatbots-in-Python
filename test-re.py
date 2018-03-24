@@ -1,12 +1,12 @@
 import re
-# pattern="mai kampus .*"
+pattern="mai kampus (.*)"
 #
-# message="mai kampus cuk, ade bigmom dini"
+message="wee kajfls mai kampus cuk, ade bigmom dini"
 #
-# match=re.search(pattern,message)
+match=re.match(pattern,message)
 #
-# if match:
-#     print("match")
+if match:
+    print(match.group(0))
 #
 # pattern="if (.*)"
 #
@@ -36,8 +36,8 @@ def swap_pronouns(phrase):
 def respond(message):
     # Concatenate the user's message to the end of a standard bot respone
     pattern="do you remember (.*)"
-    match = re.match(pattern,message)
-    # print(match)
+    match = re.search(pattern,message)
+    print(match)
     if match:
         phrase=re.search(pattern,message).group(1).replace("?","")
         return response_template.format(swap_pronouns(phrase))
